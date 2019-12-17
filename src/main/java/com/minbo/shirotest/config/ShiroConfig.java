@@ -2,6 +2,7 @@ package com.minbo.shirotest.config;
 
 import java.util.LinkedHashMap;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.minbo.shirotest.shiro.ShiroRealm;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
@@ -86,5 +87,10 @@ public class ShiroConfig {
 		AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
 		authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
 		return authorizationAttributeSourceAdvisor;
+	}
+
+	@Bean
+	public ShiroDialect shiroDialect() {
+		return new ShiroDialect();
 	}
 }
